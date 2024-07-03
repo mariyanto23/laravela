@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProgramStudiController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/program-studi', [ProgramStudiController::class, 'index'])->name('program-studi');
+Route::resource('/fakultas', FakultasController::class);
+Route::resource('/program-studi', ProgramStudiController::class);
