@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SekolahController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +26,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/program-studi', [ProgramStudiController::class, 'index'])->name('program-studi');
 Route::resource('/fakultas', FakultasController::class);
 Route::resource('/program-studi', ProgramStudiController::class);
+
+//API
+Route::get('/sekolah', [SekolahController::class,'index']);
+Route::get('/fetch-sekolah', [SekolahController::class,'fetchSekolah']);
